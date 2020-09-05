@@ -1,17 +1,20 @@
 {
-  "name": "chrome-trojan-http-passive-sniffer",
+  "name": "node-http-sniffer-monitor",
   "version": "1.0.0",
-  "description": "chrome extension - http passive sniffer trojan base",
-  "main": "app/js/background.js",
+  "description": "node-http-sniffer-monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angeal185/chrome-trojan-http-passive-sniffer.git"
+    "url": "git+https://github.com/angeal185/node-http-sniffer-monitor.git"
   },
   "keywords": [],
-  "author": "ben eaves",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/angeal185/chrome-trojan-http-passive-sniffer/issues"
+    "url": "https://github.com/angeal185/node-http-sniffer-monitor/issues"
   },
-  "homepage": "https://github.com/angeal185/chrome-trojan-http-passive-sniffer#readme"
+  "homepage": "https://github.com/angeal185/node-http-sniffer-monitor#readme"
 }

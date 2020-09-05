@@ -1,0 +1,7 @@
+{
+  "server": {
+    "name": "anon",
+    "port": 5000,
+    "options": {}
+  }
+}
