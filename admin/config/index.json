@@ -16,5 +16,9 @@
       "Content-Type": "application/json",
       "Server": "anon"
     }
+  },
+  "db": {
+    "max_size": 8000000,
+    "interval": 100000
   }
 }
